@@ -26,6 +26,32 @@ class MeasurementsToGraphiteConfiguration : GenericResourceConfiguration(), Plug
 		return MeasurementsToGraphitePlugin(this)
 	}
 	
+	fun getHostname(context : MuseExecutionContext): String?
+	{
+		val hostname_source_config = parameters[HOSTNAME_PARAM]
+		if (hostname_source_config == null)
+			return null;
+		
+		val hostname_source = hostname_source_config.createSource()
+		return BaseValueSource.getValue(hostname_source, context, false, String::class.java)
+	}
+	
+	fun getPort(context : MuseExecutionContext): Int
+	{
+		var port = 2003
+
+		val port_source_config = parameters[PORT_PARAM]
+		if (port_source_config != null)
+		{
+			val port_source = port_source_config.createSource()
+			val value = BaseValueSource.getValue(port_source, context, false, Integer::class.java)
+			if (value != null)
+				port = value as Int
+		}
+		return port;
+	}
+	
+	
 	class MeasurementsToGraphiteType : ResourceSubtype(TYPE_ID, "Send Measurements to Graphite", MeasurementsToGraphiteConfiguration::class.java, PluginConfiguration.PluginConfigurationResourceType())
 	{
 		override fun create(): MuseResource
