@@ -44,9 +44,9 @@ class MeasurementsToGraphiteConfiguration : GenericResourceConfiguration(), Plug
 		if (port_source_config != null)
 		{
 			val port_source = port_source_config.createSource()
-			val value = BaseValueSource.getValue(port_source, context, false, Integer::class.java)
+			val value = BaseValueSource.getValue(port_source, context, false, Number::class.java)
 			if (value != null)
-				port = value as Int
+				port = value.toInt()
 		}
 		return port;
 	}

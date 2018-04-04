@@ -51,7 +51,7 @@ class MeasurementsToGraphitePlugin(val configuration: MeasurementsToGraphiteConf
 	private fun configure(context: MuseExecutionContext)
 	{
 	    hostname = configuration.getHostname(context)
-		port = configuration.getPort(context)
+		port = configuration.getPort(context) as Int
 	}
 	
 	override fun applyToContextType(context: MuseExecutionContext?): Boolean
