@@ -29,7 +29,7 @@ class MeasurementsToGraphitePlugin(val configuration: MeasurementsToGraphiteConf
 			if (hostname == null)
 			{
 				context.raiseEvent(TestErrorEventType.create("hostname parameter is required for MeasurementsToGraphitePlugin"))
-				return;
+				return
 			}
 			
 			connector = MeasurementsGraphiteConnector(object: OutputStreamProvider {
@@ -51,7 +51,7 @@ class MeasurementsToGraphitePlugin(val configuration: MeasurementsToGraphiteConf
 	private fun configure(context: MuseExecutionContext)
 	{
 	    hostname = configuration.getHostname(context)
-		port = configuration.getPort(context) as Int
+		port = configuration.getPort(context)
 	}
 	
 	override fun applyToContextType(context: MuseExecutionContext?): Boolean
