@@ -11,7 +11,7 @@ version = 0.1
 group = 'com.webperformance.muse'
 
 dependencies {
-    compile 'com.webperformance.muse:muse-webperformance-measurements:0.2'
+    compile 'com.webperformance.muse:muse-webperformance-measurements:0.3'
 
     testCompile 'junit:junit:4.12'
 }
