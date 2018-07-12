@@ -7,7 +7,7 @@ The plugin is a Measurements Consumer. When it receives measurements, it sends t
 
 ## Installation
 
-The plugin is distributed with the rest of the MuseIDE plugins - press the Extensions button in MuseIDE to add it to your project.  
+The extension is distributed with the rest of the MuseIDE extension - press the Extensions button in MuseIDE to add it to your project.  
 
 ## Configuration
 
